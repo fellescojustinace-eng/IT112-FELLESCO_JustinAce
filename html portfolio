@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Ace P. Fellesco | Cloud Engineer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #061426;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(4, 18, 35, 0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #1683d8;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4db8ff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4db8ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at top, #103b63, #061426 60%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        /* PROFILE PICTURE */
+        .profile-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #4db8ff, #0077cc);
+            box-shadow: 0 0 35px rgba(77, 184, 255, 0.4);
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 4px solid #061426;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #4db8ff;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            color: #9edcff;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #b7c8d8;
+            font-size: 18px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: #0c3152;
+            border: 1px solid #1683d8;
+            color: #4db8ff;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+            color: #4db8ff;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #c6d5e2;
+            font-size: 18px;
+        }
+
+        /* SKILLS */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skill-card {
+            background: #0b2037;
+            border: 1px solid #164c75;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #4db8ff;
+            box-shadow: 0 10px 30px rgba(77, 184, 255, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            color: #4db8ff;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #aebdca;
+            font-size: 14px;
+        }
+
+        /* JOURNEY */
+        .journey {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .journey-item {
+            background: #0b2037;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-left: 4px solid #4db8ff;
+            border-radius: 8px;
+        }
+
+        .journey-item h3 {
+            color: #4db8ff;
+            margin-bottom: 8px;
+        }
+
+        .journey-item p {
+            color: #b7c8d8;
+        }
+
+        /* GOAL */
+        .goal {
+            max-width: 900px;
+            margin: auto;
+            background: linear-gradient(135deg, #0b2946, #092038);
+            padding: 45px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #176ca3;
+        }
+
+        .goal h3 {
+            font-size: 30px;
+            color: #4db8ff;
+            margin-bottom: 15px;
+        }
+
+        .goal p {
+            color: #c3d4e1;
+            font-size: 17px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 10px 0;
+            color: #c4d2de;
+        }
+
+        .contact span {
+            color: #4db8ff;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #030d18;
+            color: #72879a;
+            border-top: 1px solid #123b5a;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .profile-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Justin.dev</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#goal">Goal</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="profile-container">
+                <img src="justin.jpg" alt="Justin Ace P. Fellesco">
+            </div>
+
+            <h1>Hello, I'm <span>Justin Ace</span></h1>
+
+            <h2>Future Cloud Engineer ☁️</h2>
+
+            <p>
+                BSIT-1R13 | Information Technology Student
+            </p>
+
+            <div class="badge">
+                ☁️ Building My Future in Cloud Computing
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+
+            <p>
+                My name is Justin Ace P. Fellesco. I am an Information
+                Technology student from BSIT-1R13. I am interested in
+                cloud computing, networking, servers, and modern
+                technology.
+            </p>
+
+            <br>
+
+            <p>
+                My goal is to continuously improve my technical skills
+                and gain experience in different areas of Information
+                Technology. I want to become a successful Cloud Engineer
+                in the future.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">Cloud & IT Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">☁️</div>
+                <h3>Cloud Computing</h3>
+                <p>
+                    Learning cloud platforms, cloud services,
+                    storage, and deployment.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>Networking</h3>
+                <p>
+                    Understanding networks, connections,
+                    IP addresses, and network systems.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🖥️</div>
+                <h3>Servers</h3>
+                <p>
+                    Learning about servers, hosting,
+                    operating systems, and system management.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Programming</h3>
+                <p>
+                    Developing basic programming skills
+                    and solving problems using code.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOURNEY -->
+    <section id="journey">
+
+        <h2 class="section-title">My Cloud Journey</h2>
+
+        <div class="journey">
+
+            <div class="journey-item">
+                <h3>01 — Learn</h3>
+                <p>
+                    Build a strong foundation in Information
+                    Technology and computer systems.
+                </p>
+            </div>
+
+            <div class="journey-item">
+                <h3>02 — Practice</h3>
+                <p>
+                    Practice programming, networking,
+                    Linux, servers, and cloud technologies.
+                </p>
+            </div>
+
+            <div class="journey-item">
+                <h3>03 — Explore</h3>
+                <p>
+                    Explore cloud platforms and learn how
+                    modern cloud infrastructure works.
+                </p>
+            </div>
+
+            <div class="journey-item">
+                <h3>04 — Become</h3>
+                <p>
+                    Become a skilled and professional
+                    Cloud Engineer.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAREER GOAL -->
+    <section id="goal">
+
+        <h2 class="section-title">Career Goal</h2>
+
+        <div class="goal">
+
+            <h3>☁️ Future Cloud Engineer</h3>
+
+            <p>
+                My dream is to become a Cloud Engineer who can
+                design, manage, and maintain reliable cloud
+                infrastructure. I want to use technology to
+                create efficient and secure systems while
+                continuously learning new technologies.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact">
+
+            <p>
+                <span>Name:</span>
+                Justin Ace P. Fellesco
+            </p>
+
+            <p>
+                <span>Section:</span>
+                BSIT-1R13
+            </p>
+
+            <p>
+                <span>Career:</span>
+                Future Cloud Engineer
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Justin Ace P. Fellesco | Future Cloud Engineer
+        </p>
+
+    </footer>
+
+</body>
+</html>
